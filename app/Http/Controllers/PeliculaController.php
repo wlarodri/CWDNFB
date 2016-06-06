@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use App\Pelicula;
 
 class PeliculaController extends Controller
 {
@@ -15,7 +16,9 @@ class PeliculaController extends Controller
      */
     public function index()
     {
-        //
+        $pelicula = Pelicula::all();
+        // carga la vista y retona los igredientes
+        return view('pelicula.index', compact('pelicula'));
     }
 
     /**
@@ -25,7 +28,7 @@ class PeliculaController extends Controller
      */
     public function create()
     {
-        //
+        return view('pelicula.create');
     }
 
     /**
@@ -36,7 +39,9 @@ class PeliculaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pelicula::create($request->all());
+        return \Redirect::to('Pelicula');
+
     }
 
     /**
@@ -47,7 +52,9 @@ class PeliculaController extends Controller
      */
     public function show($id)
     {
-        //
+        $pelicula = Pelicula::find($id);
+
+        return view('pelicula.show', compact('pelicula'));
     }
 
     /**
@@ -58,7 +65,8 @@ class PeliculaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pelicula = Pelicula::find($id);
+        return view('pelicula.edit', compact('pelicula', $pelicula));
     }
 
     /**
@@ -68,9 +76,13 @@ class PeliculaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateInfoEmpresaRequest $request, $id)
     {
-        //
+        $pelicula = Pelicula::find($id);
+        Pelicula::create($request->all());
+        $pelicula->save();
+        return redirect()->to('Pelicula')->with('message', 'La pelicula ha sido actualizada correctamente');
+
     }
 
     /**
@@ -81,6 +93,14 @@ class PeliculaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pelicula = Pelicula::find($id);
+        $pelicula->delete();
+        return redirect()->to('Pelicula')->with('message', 'La pelicula ha sido eliminado correctamente');
     }
+
+    /*public function __construct()
+    {
+        $this->middleware('grupo:2');
+
+    }*/
 }
