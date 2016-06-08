@@ -40,7 +40,7 @@ class PeliculaController extends Controller
     public function store(Request $request)
     {
         Pelicula::create($request->all());
-        return \Redirect::to('Pelicula');
+        return \Redirect::to('pelicula');
 
     }
 
@@ -81,7 +81,7 @@ class PeliculaController extends Controller
         $pelicula = Pelicula::find($id);
         Pelicula::create($request->all());
         $pelicula->save();
-        return redirect()->to('Pelicula')->with('message', 'La pelicula ha sido actualizada correctamente');
+        return redirect()->to('pelicula')->with('message', 'La pelicula ha sido actualizada correctamente');
 
     }
 
@@ -95,7 +95,7 @@ class PeliculaController extends Controller
     {
         $pelicula = Pelicula::find($id);
         $pelicula->delete();
-        return redirect()->to('Pelicula')->with('message', 'La pelicula ha sido eliminado correctamente');
+        return redirect()->to('pelicula')->with('message', 'La pelicula ha sido eliminado correctamente');
     }
 
     /*public function __construct()
