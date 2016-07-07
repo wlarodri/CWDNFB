@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Pelicula;
 
+
 class PeliculaController extends Controller
 {
     /**
@@ -19,6 +20,8 @@ class PeliculaController extends Controller
         $pelicula = Pelicula::all();
         // carga la vista y retona los igredientes
         return view('pelicula.index', compact('pelicula'));
+        return view('pelicula.index')->with('pelicula');
+
     }
 
     /**
@@ -39,6 +42,7 @@ class PeliculaController extends Controller
      */
     public function store(Request $request)
     {
+       // dd($request);
         Pelicula::create($request->all());
         return \Redirect::to('pelicula');
 
@@ -52,9 +56,9 @@ class PeliculaController extends Controller
      */
     public function show($id)
     {
+        /* return view('pelicula.show', compact('pelicula'));*/
         $pelicula = Pelicula::find($id);
-
-        return view('pelicula.show', compact('pelicula'));
+        return view('pelicula.show')->with('pelicula',$pelicula);
     }
 
     /**
@@ -66,7 +70,7 @@ class PeliculaController extends Controller
     public function edit($id)
     {
         $pelicula = Pelicula::find($id);
-        return view('pelicula.edit', compact('pelicula', $pelicula));
+        return view('pelicula.edit')-> with('pelicula', $pelicula);
     }
 
     /**
@@ -76,13 +80,12 @@ class PeliculaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreateInfoEmpresaRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $pelicula = Pelicula::find($id);
-        Pelicula::create($request->all());
+        $pelicula->fill($request->all());
         $pelicula->save();
-        return redirect()->to('pelicula')->with('message', 'La pelicula ha sido actualizada correctamente');
-
+        return redirect()->route('pelicula.show',$id);
     }
 
     /**
@@ -93,14 +96,20 @@ class PeliculaController extends Controller
      */
     public function destroy($id)
     {
+        Pelicula::destroy($id);
+        return redirect()->route('pelicula.index');
+      }
+
+    public function vista_agregar_pelicula($id)
+    {
         $pelicula = Pelicula::find($id);
-        $pelicula->delete();
-        return redirect()->to('pelicula')->with('message', 'La pelicula ha sido eliminado correctamente');
+        return view('pelicula')->with('pelicula',$pelicula);
+    }
+    public function agregar_pelicula(Request $request,$id)
+    {
+        $pelicula = Pelicula::find($id);
+        return redirect()->route('pelicula.show',[$pelicula]);
     }
 
-    /*public function __construct()
-    {
-        $this->middleware('grupo:2');
 
-    }*/
 }

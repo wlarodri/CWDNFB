@@ -15,11 +15,10 @@ class CreatePeliculaTable extends Migration
         Schema::create('peliculas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
-            $table->integer('año');
+            $table->date('año');
             $table->string('genero');
             $table->string('descripcion_pelicula');
             $table->string('idiomas');
-            $table->string('imagen');
             $table->string('director');
             $table->string('web_oficial');
             $table->string('actores');

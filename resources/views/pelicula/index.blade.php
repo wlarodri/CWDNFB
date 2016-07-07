@@ -1,16 +1,22 @@
 
+@extends('master')
 
+@section('barra-lateral')
 
-    <li><a href="{{ URL::to('pelicula') }}">Película</a></li>
-    <li class="active"><a href="{{ URL::to('pelicula/create') }}">Registrar película</a></li>
+    <!-- <li><a href="{{ URL::to('pelicula') }}">Película</a></li>-->
+    <li class="btn btn-default"><a href="{{ URL::to('pelicula/create') }}">Registrar película</a></li>
 
+    <li class="btn btn-default"><a href="{{ URL::to('pelicula/edit') }}">Editar película</a></li>
+
+    <li class="btn btn-default"><a href="{{ URL::to('pelicula/create') }}">Eliminar película</a></li>
+@stop
 
     @section('header')
         Película
     @stop
 
 
-
+    @section('content')
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
@@ -23,7 +29,6 @@
             <td>Director</td>
             <td>Sitio Web</td>
             <td>Actores</td>
-            <td>Evaluación</td>
 
         </tr>
         </thead>
@@ -34,16 +39,16 @@
         @endif
         @foreach($pelicula as $key => $value)
             <tr>
-                <td>{{ $value->id_pelicula }}</td>
-                <td>{{ $value->titulo_pelicula }}</td>
-                <td>{{ $value->año_pelicula }}</td>
-                <td>{{ $value->genero_pelicula }}</td>
+                <td>{{ $value->id }}</td>
+                <td>{{ $value->titulo }}</td>
+                <td>{{ $value->año}}</td>
+                <td>{{ $value->genero }}</td>
                 <td>{{ $value->descripcion_pelicula }}</td>
-                <td>{{ $value->idioma_pelicula }}</td>
-                <td>{{ $value->director_pelicula }}</td>
-                <td>{{ $value->sitioweb_pelicula }}</td>
-                <td>{{ $value->actores_pelicula }}</td>
-                <td>{{ $value->evaluacion_pelicula }}</td>
+                <td>{{ $value->idiomas }}</td>
+                <td>{{ $value->director }}</td>
+                <td>{{ $value->web_oficial }}</td>
+                <td>{{ $value->actores }}</td>
+            </td>
 
 
                 <!-- we will also add show, edit, and delete buttons -->
@@ -52,11 +57,12 @@
                     <!-- we will add this later since its a little more complicated than the other two buttons -->
 
                     <!-- show the nerd (uses the show method found at GET /nerds/{id} -->
-                    <a class="btn btn-small btn-success" href="{{ URL::to('Pelicula/' . $value->id_pelicula) }}"><span class="glyphicon glyphicon-eye-open"></span>  Ver</a>
+                    <a class="btn btn-small btn-success" href="{{ URL::to('pelicula/' . $value->id) }}"><span class="glyphicon glyphicon-eye-open"></span>  Ver</a>
 
                     <!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
-                    <a class="btn btn-small btn-warning" href="{{ URL::to('Pelicula/' . $value->id_pelicula . '/edit') }}"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
+                    <a class="btn btn-small btn-warning" href="{{ route('pelicula.edit',[$value->id])}}"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
 
+                    <a class="btn btn-small btn-danger" href="{{ URL::to('pelicula/' . $value->id . '/delete   ') }}"><span class="glyphicon glyphicon-trash"></span>  Eliminar</a>
                 </td>
 
             </tr>
@@ -64,4 +70,4 @@
         </tbody>
     </table>
 
-
+@endsection

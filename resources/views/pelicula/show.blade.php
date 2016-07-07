@@ -1,8 +1,14 @@
 @extends('app')
 
+
 @section('barra-lateral')
-    <li><a href="{{ URL::to('pelicula') }}">Películas</a></li>
-    <li class="active"><a href="{{ URL::to('pelicula/create') }}">Registrar película</a></li>
+
+    <!-- <li><a href="{{ URL::to('pelicula') }}">Película</a></li>-->
+    <li class="btn btn-default"><a href="{{ URL::to('pelicula/create') }}">Registrar película</a></li>
+
+    <li class="btn btn-default"><a href="{{ URL::to('pelicula/edit') }}">Editar película</a></li>
+
+    <li class="btn btn-default"><a href="{{ URL::to('pelicula/create') }}">Eliminar película</a></li>
 @stop
 @section('content')
     <h1> {!! $pelicula->nombre_pelicula !!}</h1>
@@ -15,7 +21,7 @@
                 <div>Año: <span><?php echo $pelicula->año_pelicula; ?></span></div>
             </div>
             <div class="row col-lg-6">
-                <div>Género: <span><?php echo $pelicula->genro_pelicula; ?></span></div>
+                <div>Género: <span><?php echo $pelicula->genero_pelicula; ?></span></div>
             </div>
             <div class="row col-lg-6">
                 <div>Descripción: <span><?php echo $pelicula->descripcion_pelicula; ?></span></div>
@@ -38,7 +44,7 @@
         </div>
     </div>
 
-    {!! Form::open(array('url' => 'InfoEmpresa/' . $info_empresa->id_empresa, 'class' => 'pull-right')); !!}
+    {!! Form::open(array('url' => 'Pelicula/' . $pelicula->id, 'class' => 'pull-right')) !!}
     {!! Form::hidden('_method', 'DELETE') !!}
     {!! Form::submit('Eliminar informacion', array('class' => 'btn btn-danger')) !!}
     {!! Form::close() !!}

@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::resource('pelicula', 'PeliculaController');
+Route::resource('home', 'PeliculaController');
