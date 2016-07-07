@@ -8,15 +8,13 @@
 
 @section('barra-lateral')
 
-    <!-- <li><a href="{{ URL::to('pelicula') }}">Película</a></li>-->
-    <li class="btn btn-info"><a href="{{ URL::to('pelicula/create') }}">Registrar película</a></li>
+    <li class="btn btn-default"><a href="{{ URL::to('pelicula/create') }}">Agregar película</a></li>
 
-    <li class="btn btn-default"><a href="{{ URL::to('pelicula/edit') }}">Editar película</a></li>
+    <li class="btn btn-default"><a href="{{ URL::to('home') }}">Películas</a></li>
 
-    <li class="btn btn-default"><a href="{{ URL::to('pelicula/create') }}">Eliminar película</a></li>
 @stop
 @section('header')
-    Registrar Película
+    Editar Película:  {{$pelicula->titulo}}
 @stop
 @section('content')
 
