@@ -3,13 +3,14 @@
 
 @section('barra-lateral')
 
-    <li class="btn btn-info"><a href="{{ URL::to('pelicula/create') }}">Agregar película</a></li>
+    <li class="btn btn-default"><a href="{{ URL::to('pelicula/create') }}">Agregar película</a></li>
 
     <li class="btn btn-default"><a href="{{ URL::to('home') }}">Películas</a></li>
 
 @stop
 @section('content')
     <h1> {!! $pelicula->titulo !!}</h1>
+    @include('partials.messages');
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row col-lg-6">

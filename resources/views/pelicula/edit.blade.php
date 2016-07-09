@@ -17,6 +17,7 @@
     Editar Película:  {{$pelicula->titulo}}
 @stop
 @section('content')
+    @include('partials.messages');
 
     <div class="panel-body">
 

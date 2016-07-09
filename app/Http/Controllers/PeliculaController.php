@@ -6,44 +6,33 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Pelicula;
+use App\http\Requests\PeliculaCreateRequest;
+use App\http\Requests\PeliculaUpdateRequest;
+use Session;
 
 
 class PeliculaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $pelicula = Pelicula::all();
-        // carga la vista y retona los igredientes
+        $pelicula = Pelicula::paginate(10);
+
         return view('pelicula.index', compact('pelicula'));
         return view('pelicula.index')->with('pelicula');
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+     public function create()
     {
         return view('pelicula.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
        // dd($request);
         Pelicula::create($request->all());
+        Session::flash('save','La Película se ha guardado correctamente ');
         return \Redirect::to('pelicula');
 
     }
@@ -85,6 +74,7 @@ class PeliculaController extends Controller
         $pelicula = Pelicula::find($id);
         $pelicula->fill($request->all());
         $pelicula->save();
+        Session::flash('update','La Película se ha actualizado correctamente ');
         return redirect()->route('pelicula.show',$id);
     }
 
@@ -97,6 +87,7 @@ class PeliculaController extends Controller
     public function destroy($id)
     {
         Pelicula::destroy($id);
+        Session::flash('delete','La Película se ha eliminado correctamente ');
         return redirect()->route('pelicula.index');
       }
 
@@ -110,6 +101,7 @@ class PeliculaController extends Controller
         $pelicula = Pelicula::find($id);
         return redirect()->route('pelicula.show',[$pelicula]);
     }
+
 
 
 }

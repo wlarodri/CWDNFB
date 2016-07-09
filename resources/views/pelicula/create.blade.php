@@ -16,6 +16,8 @@
 @stop
 @section('content')
 
+    @include('partials.messages')
+
     <div class="panel-body">
 
         {!! Form::open(array('route' => 'pelicula.store','class'=>'form-horizontal')) !!}

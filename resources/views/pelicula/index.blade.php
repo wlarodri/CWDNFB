@@ -15,6 +15,8 @@
 
 
     @section('content')
+        @include('partials.messages')
+
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
@@ -66,6 +68,12 @@
             </tr>
         @endforeach
         </tbody>
+
     </table>
+  <div class="text-center">
+      {!! $pelicula->render() !!}
+  </div>
+
+
 
 @endsection
