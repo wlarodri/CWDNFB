@@ -18,8 +18,9 @@ class UsuariosSeeder extends Seeder
                  'Fecha_Nacimiento'=>'20-07-1993',
                  'ciudad'=>'concepcion',
                  'genero'=>'femenino',
-                 'Nombre_usuario'=>'nicol.b',
+                 'Nombre_usuario'=>'nicol.b',*/
 
         ]);
-    }
+
+}
 }
