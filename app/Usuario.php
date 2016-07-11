@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Model
+class usuario extends Model
 {
     protected $table = 'usuarios';
-    protected $filliable= [
+    protected $fillable=[
         'nombre',
         'apellido_paterno',
         'apellido_materno',
@@ -15,5 +15,8 @@ class Usuario extends Model
         'ciudad',
         'genero',
         'nombre_usuario'
-    ]
+    ];
 }
+
+
+
