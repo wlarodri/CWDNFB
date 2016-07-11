@@ -8,7 +8,7 @@
 
 @section('barra-lateral')
 
-    <li class="btn btn-default"><a href="{{ URL::to('home') }}">Películas</a></li>
+    <li class="btn btn-default"><a href="{{ URL::to('pelicula') }}">Películas</a></li>
 
 @stop
 @section('header')

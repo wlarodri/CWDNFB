@@ -43,7 +43,7 @@
     <div class="container">
         <div class="navbar-header">
 
-            <a class="navbar-brand" href="{{ URL::to('home') }}"><span class="glyphicon glyphicon-home"></span> Menú</a>
+            <a class="navbar-brand" href="{{ URL::to('') }}"><span class="glyphicon glyphicon-home"></span> Menú</a>
 
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->

@@ -10,14 +10,16 @@
 @stop
 
     @section('header')
-        Película
+        <div class="text-center">
+            Películas
+        </div>
     @stop
 
 
     @section('content')
         @include('partials.messages')
 
-    <table class="table table-striped table-bordered">
+        <table class="table table-striped table-bordered table-condensed table-responsive">
         <thead>
         <tr>
 

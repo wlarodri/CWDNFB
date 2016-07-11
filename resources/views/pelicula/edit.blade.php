@@ -10,7 +10,7 @@
 
     <li class="btn btn-default"><a href="{{ URL::to('pelicula/create') }}">Agregar película</a></li>
 
-    <li class="btn btn-default"><a href="{{ URL::to('home') }}">Películas</a></li>
+    <li class="btn btn-default"><a href="{{ URL::to('pelicula') }}">Películas</a></li>
 
 @stop
 @section('header')

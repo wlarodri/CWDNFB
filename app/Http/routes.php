@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::resource('pelicula', 'PeliculaController');
 Route::resource('home', 'PeliculaController');
+Route::resource('usuario','UsuarioController');
