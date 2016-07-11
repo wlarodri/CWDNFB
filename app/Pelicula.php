@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MovieNet;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,7 +20,7 @@ class pelicula extends Model
 
     public function tipo_pelicula()
     {
-        return $this->belongsTo('App\TipoIdioma');
+        return $this->belongsTo('MovieNet\TipoIdioma');
     }
     public function getTipoAttribute()
     {

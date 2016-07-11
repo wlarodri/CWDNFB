@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MovieNet\Http\Controllers;
 
-use App\Http\Requests;
+use MovieNet\Http\Requests;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,5 +25,10 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function contacto()
+    {
+        return view('contacto');
     }
 }

@@ -22,3 +22,4 @@ Route::resource('usuario','UsuarioController');
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::get('contacto','HomeController@Contacto');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MovieNet;
 
 use Illuminate\Database\Eloquent\Model;
 

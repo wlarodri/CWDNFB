@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace MovieNet\Http\Requests;
 
-use App\Http\Requests\Request;
+use MovieNet\Http\Requests\Request;
 
 class PeliculaCreateRequest extends Request
 {
