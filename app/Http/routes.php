@@ -12,11 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
+
 Route::resource('pelicula', 'PeliculaController');
-Route::resource('home', 'PeliculaController');
+Route::resource('usuario','UsuarioController');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
