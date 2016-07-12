@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableCalificaPelicula extends Migration
+class CreateTableCalificaPeliculas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateTableCalificaPelicula extends Migration
     public function up()
     {
         Schema::create('calificaPeliculas', function (Blueprint $table) {
-            $table->increments('idPelicula');
-            $table->increments('idUser');
+            $table->integer('idPelicula')->unsigned();
+            $table->integer('idUsuario')->unsigned();
             $table->string('opinion');
+            $table->foreign('idPelicula')->references('id')->on('peliculas')->onDelete('cascade');
+            $table->foreign('idUsuario')->references('id')->on('usuarios')->onDelete('cascade');
             $table->timestamps();
-            $table->foreign('idPelicula')->references('id')->on('pelicula');
-            $table->foreign('idUsuario')->references('id')->on('usuario')->onDelete('cascade');
         });
     }
 
@@ -32,3 +32,4 @@ class CreateTableCalificaPelicula extends Migration
         Schema::drop('calificaPeliculas');
     }
 }
+

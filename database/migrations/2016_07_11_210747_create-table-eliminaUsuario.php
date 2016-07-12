@@ -13,9 +13,9 @@ class CreateTableEliminaUsuario extends Migration
     public function up()
     {
         Schema::create('eliminaUsuario', function (Blueprint $table) {
-            $table->increments('idUsuario');
+            $table->integer('idUsuario')->unsigned();
             $table->timestamps();
-                $table->foreign('idUsuario')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->foreign('idUsuario')->references('id')->on('usuarios')->onDelete('cascade');
         });
     }
 
