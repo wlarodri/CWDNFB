@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MovieNet\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Pelicula;
-use App\http\Requests\PeliculaCreateRequest;
-use App\http\Requests\PeliculaUpdateRequest;
+use MovieNet\Http\Requests;
+use MovieNet\Http\Controllers\Controller;
+use MovieNet\Pelicula;
+use MovieNet\http\Requests\PeliculaCreateRequest;
+use MovieNet\http\Requests\PeliculaUpdateRequest;
 use Session;
 
 

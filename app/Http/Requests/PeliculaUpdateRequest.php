@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Requests;
+namespace MovieNet\Http\Requests;
 
-use App\Http\Requests;
-use App\Http\Requests\Request;
+use MovieNet\Http\Requests;
+use MovieNet\Http\Requests\Request;
 
 class PeliculaUpdateRequest extends Request
 {

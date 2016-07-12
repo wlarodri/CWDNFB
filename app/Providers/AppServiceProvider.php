@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace MovieNet\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

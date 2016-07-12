@@ -14,6 +14,7 @@ class CreatePeliculaTable extends Migration
     {
         Schema::create('peliculas', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('idGenero')->unsigned();
             $table->string('titulo');
             $table->date('año');
             $table->string('genero');
@@ -23,6 +24,8 @@ class CreatePeliculaTable extends Migration
             $table->string('web_oficial');
             $table->string('actores');
             $table->timestamps();
+
+            
         });
     }
 
