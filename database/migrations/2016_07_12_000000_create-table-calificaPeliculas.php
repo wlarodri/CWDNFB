@@ -15,7 +15,7 @@ class CreateTableCalificaPeliculas extends Migration
         Schema::create('calificaPeliculas', function (Blueprint $table) {
             $table->integer('idPelicula')->unsigned();
             $table->integer('idUsuario')->unsigned();
-            $table->string('opinion');
+            $table->integer('calificacion');
             $table->foreign('idPelicula')->references('id')->on('peliculas')->onDelete('cascade');
             $table->foreign('idUsuario')->references('id')->on('usuarios')->onDelete('cascade');
             $table->timestamps();
